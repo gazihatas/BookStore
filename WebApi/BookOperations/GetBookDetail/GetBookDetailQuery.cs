@@ -8,6 +8,7 @@ namespace WebApi.BookOperations.GetBookDetail
 {
     public class GetBookDetailQuery
     {
+        private BookDetailViewModel Model { get; set; }
         private readonly BookStoreDbContext _dbContext;
         private readonly IMapper _mapper;
         //hangi id li kitabın detayını istiyorsak tanımlayacağız ki dışarıdan set edilebilsin

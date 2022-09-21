@@ -25,7 +25,7 @@ namespace WebApi.BookOperations.GetBookDetail
             var book = _dbContext.Books.Where(book => book.Id == BookId).SingleOrDefault();
             if (book is null)
             {
-                throw new InvalidOperationException("Kitap Bulunamadı!");
+                throw new InvalidOperationException(" Kitap Bulunamadı!");
             }
 
             BookDetailViewModel vm = _mapper.Map<BookDetailViewModel>(book);

@@ -21,7 +21,7 @@ namespace WebApi.BookOperations.CreateBook
             var book = _dbContext.Books.SingleOrDefault(x => x.Title == Model.Title);
             if (book is not null)
             {
-                throw new InvalidOperationException("Kitap zaten mevcut");
+                throw new InvalidOperationException(" Kitap zaten mevcut");
             }
             //Model ile gelen veriyi Book objesine convert eder. Direk Book u database e kayıt edeceğiz.
             book = _mapper.Map<Book>(Model); //new Book();

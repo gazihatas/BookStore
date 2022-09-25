@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebApi.Entities;
 
 namespace WebApi.DBOperations
 {
@@ -10,5 +11,6 @@ namespace WebApi.DBOperations
         }
         //Books entity nin tüm değerlerine erişebiliriz.
         public DbSet<Book> Books { get; set; }
+        public DbSet<Genre> Genres { get; set; }
     }
 }

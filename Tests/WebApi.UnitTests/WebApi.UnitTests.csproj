@@ -27,4 +27,14 @@
     <ProjectReference Include="..\..\WebApi\WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\AuthorOperations\Commands\CreateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Commands\DeleteAuthor\" />
+    <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
+    <Folder Include="Application\GenreOperations\Commands\CreateGenre\" />
+    <Folder Include="Application\GenreOperations\Commands\DeleteGenre\" />
+    <Folder Include="Application\GenreOperations\Commands\UpdateGenre\" />
+    <Folder Include="Application\GenreOperations\NewFolder\" />
+  </ItemGroup>
+
 </Project>

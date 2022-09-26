@@ -10,12 +10,12 @@ namespace WebApi.BookOperations.GetBookDetail
     public class GetBookDetailQuery
     {
         
-        private readonly BookStoreDbContext _dbContext;
+        private readonly IBookStoreDbContext _dbContext;
         private readonly IMapper _mapper;
         //hangi id li kitabın detayını istiyorsak tanımlayacağız ki dışarıdan set edilebilsin
         public int BookId { get; set; }
 
-        public GetBookDetailQuery(BookStoreDbContext dbContext, IMapper mapper)
+        public GetBookDetailQuery(IBookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
@@ -26,7 +26,7 @@ namespace WebApi.BookOperations.GetBookDetail
             var book = _dbContext.Books.Include(x => x.Genre).Where(book => book.Id == BookId).SingleOrDefault();
             if (book is null)
             {
-                throw new InvalidOperationException(" Kitap Bulunamadı!");
+                throw new InvalidOperationException("Kitap Bulunamadı!");
             }
 
             BookDetailViewModel vm = _mapper.Map<BookDetailViewModel>(book);
@@ -36,6 +36,7 @@ namespace WebApi.BookOperations.GetBookDetail
 
     public class BookDetailViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }
         public int PageCount { get; set; }

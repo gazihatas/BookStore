@@ -14,12 +14,12 @@ using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 
 namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateCommand
 {
-    public class CreateBookCommand : IClassFixture<CommonTestFixture>
+    public class CreateBookCommandTest : IClassFixture<CommonTestFixture>
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public CreateBookCommand(CommonTestFixture testFixture)
+        public CreateBookCommandTest(CommonTestFixture testFixture)
         {
             _context = testFixture.Context;
             _mapper = testFixture.Mapper;
@@ -37,7 +37,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateCommand
             _context.Books.Add(book);
             _context.SaveChanges();
 
-            WebApi.BookOperations.CreateBook.CreateBookCommand command = new WebApi.BookOperations.CreateBook.CreateBookCommand(_context, _mapper);
+            CreateBookCommand command = new CreateBookCommand(_context, _mapper);
             command.Model = new CreateBookModel() { Title = book.Title };
 
             //act (Çalıştırma) & assert (Doğrulama)
